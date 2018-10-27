@@ -25,7 +25,7 @@ export default class Body extends React.Component {
             userChoice: null,
             computerChoice: null,
             winner: false,
-          //  score: 0
+            score: 0
         };
 
         this.toggle = this
@@ -41,7 +41,7 @@ export default class Body extends React.Component {
         } else if (choice.indexOf(this.state.computerChoice) > 0 && choice.indexOf(input) > choice.indexOf(this.state.computerChoice)) {
             this.state.winner = true
             this.state.text = "You win"
-            //this.state.score++
+            this.state.score++
         } else {
             this.state.winner = false
             this.state.text = "You lose"
@@ -94,6 +94,13 @@ export default class Body extends React.Component {
                         <Button color="secondary" onClick={this.toggle}>Try Again</Button>
                     </ModalFooter>
                 </Modal>
+                <Card>
+                    <CardBody>
+                        <CardTitle>Your score</CardTitle>
+                        <CardText>{this.state.score}</CardText>
+                    </CardBody>
+                </Card>
+
             </div>
         );
     }
